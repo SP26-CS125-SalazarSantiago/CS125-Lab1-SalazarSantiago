@@ -1,5 +1,5 @@
 """
-Name: Zach Wilson
+Name: Santiago Salazar
 Date: 1/15/2026
 Course: CS 125
 Simple OOP Demo - Covers all key concepts in ~50 lines
@@ -39,6 +39,14 @@ class BankAccount:
     # 2. apply_interest(self, rate) - adds interest to the balance
     #
 
+    def transfer(self, amount, other_account):
+        self.balance -= amount
+        other_account.balance += amount
+        return f"Transferred ${amount}"
+
+    def apply_interest(self, rate):
+        self.balance += (self.balance * rate)
+        return f"Interest applied. New balance: {self.balance}"
 
 # DEMONSTRATION
 
@@ -64,13 +72,12 @@ print(account2.get_info())
 # DEMO YOUR NEW METHODS HERE
 # Once you've created your two methods above, test them here!
 # Example calls (uncomment after implementing):
-#
-# print("\nTesting transfer method:")
-# print(account1.transfer(100, account2))
-# print(account1.get_info())
-# print(account2.get_info())
-#
-# print("\nTesting apply_interest method:")
-# print(account1.apply_interest(0.05))  # 5% interest
-# print(account1.get_info())
-#
+
+print("\nTesting transfer method:")
+print(account1.transfer(100, account2))
+print(account1.get_info())
+print(account2.get_info())
+
+print("\nTesting apply_interest method:")
+print(account1.apply_interest(0.05))  # 5% interest
+print(account1.get_info())
